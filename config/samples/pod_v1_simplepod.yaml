@@ -1,0 +1,14 @@
+apiVersion: pod.routine.kat/v1
+kind: SimplePod
+metadata:
+  labels:
+    app.kubernetes.io/name: simple-pod-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: simplepod-sample
+spec:
+  containers:
+    - name: alpine
+      image: alpine:latest
+      command:
+        - "sleep" 
+        - "20000s"

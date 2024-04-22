@@ -1,0 +1,27 @@
+# permissions for end users to view simplepods.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: simplepod-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: simple-pod-operator
+    app.kubernetes.io/part-of: simple-pod-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: simplepod-viewer-role
+rules:
+- apiGroups:
+  - pod.routine.kat
+  resources:
+  - simplepods
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - pod.routine.kat
+  resources:
+  - simplepods/status
+  verbs:
+  - get
